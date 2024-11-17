@@ -4,21 +4,21 @@ phases:
   pre_build:
     commands:
       - echo *** Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 135044555678.dkr.ecr.us-east-2.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 725316356419.dkr.ecr.us-east-1.amazonaws.com
       # - pip install -r requirements.txt
   build:
     commands:
       - echo *** Running tests...
-      - docker build -t devops/goku .
-      - docker run devops/goku python -m unittest
-      - docker tag devops/goku:latest 135044555678.dkr.ecr.us-east-2.amazonaws.com/devops/goku:latest
+      - docker build -t blacklist_emails .
+      - docker run blacklist_emails python -m unittest
+      - docker tag blacklist_emails:latest 725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest
   post_build:
     commands:
       - echo *** Build completed on `date`
-      - docker push 135044555678.dkr.ecr.us-east-2.amazonaws.com/devops/goku:latest
+      - docker push 725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest
       - echo *** Pushed image to ECR
-      - printf '[{"name":"container-black-list","imageUri":"135044555678.dkr.ecr.us-east-2.amazonaws.com/devops/goku:latest"}]' > imagedefinitions.json
-      - printf '{"ImageURI":"135044555678.dkr.ecr.us-east-2.amazonaws.com/devops/goku:latest"}' > imageDetail.json
+      - printf '[{"name":"Container-app-python-jip","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}' > imageDetail.json
       - cat imagedefinitions.json
 
 artifacts:

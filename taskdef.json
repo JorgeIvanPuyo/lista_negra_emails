@@ -1,5 +1,5 @@
 {
-  "executionRoleArn": "arn:aws:iam::135044555678:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::725316356419:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "portMappings": [
@@ -9,7 +9,7 @@
           "protocol": "tcp"
         }
       ],
-      "name": "container-black-list",
+      "name": "Container-app-python-jip",
       "essential": true,
       "image": "<IMAGE1_NAME>"
     }
@@ -18,5 +18,5 @@
   "networkMode": "awsvpc",
   "cpu": "512",
   "memory": "1024",
-  "family": "task_app_black_email_list"
+  "family": "Task-app-python-jip"
 }
