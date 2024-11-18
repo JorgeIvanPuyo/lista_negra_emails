@@ -10,7 +10,6 @@ api = Api(app)
 app.config['JWT_SECRET_KEY'] = 'super-secret-for-rabbits'
 jwt = JWTManager(app)
 
-
 init_db(app)
 
 api.add_resource(EmailDarkList, '/blacklist')
