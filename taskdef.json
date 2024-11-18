@@ -1,24 +1,26 @@
 {
-  "executionRoleArn": "arn:aws:iam::725316356419:role/ecsTaskExecutionRole", 
-  "networkMode": "awsvpc", 
-  "family": "Task-app-python-jip", 
-  "memory": "2048", 
-  "cpu": "1024", 
+  "executionRoleArn": "arn:aws:iam::725316356419:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "portMappings": [
         {
-          "protocol": "tcp", 
-          "containerPort": 5000, 
-          "hostPort": 5000
+          "hostPort": 5000,
+          "protocol": "tcp",
+          "containerPort": 5000
         }
-      ], 
-      "image": "<IMAGE1_NAME>", 
-      "name": "Container-app-python", 
-      "essential": true
+      ],
+
+      "image": "<IMAGE1_NAME>",
+      "essential": true,
+      "name": "Container-app-python"
     }
-  ], 
+  ],
+
   "requiresCompatibilities": [
     "FARGATE"
-  ]
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "512",
+  "memory": "1024",
+  "family": "Task-app-python-jip"
 }

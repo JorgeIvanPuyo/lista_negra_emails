@@ -3,34 +3,33 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo *** Logging in to Amazon ECR...
+      - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 725316356419.dkr.ecr.us-east-1.amazonaws.com
-      # - pip install -r requirements.txt
   build:
     commands:
-      - echo *** Running tests...
+      - echo Build started on `date`
+      - echo Building the Docker image...          
       - docker build -t blacklist_emails .
       - docker run blacklist_emails python -m unittest
       - docker tag blacklist_emails:latest 725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest
   post_build:
     commands:
-      - echo *** Build completed on `date`
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
       - docker push 725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest
-      - echo *** Pushed image to ECR
-      #- printf '[{"name":"Container-app-python-jip","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
-      - printf '[{"name":"Container-app-python","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
+      - echo Writing Image Definitions file...
+      - printf '[{"name":"Container-app-python-jip","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
       - printf '{"ImageURI":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}' > imageDetail.json
-      - cat imagedefinitions.json
-
+      - cat imagedefinitions.json 
 artifacts:
   files:
-    - "**/*"
+    - '**/*'
     - imagedefinitions.json
     - imageDetail.json
   secondary-artifacts:
     DefinitionArtifact:
       files:
-        - appspec.yml
+        - appspec.yaml
         - taskdef.json
     ImageArtifact:
       files:
