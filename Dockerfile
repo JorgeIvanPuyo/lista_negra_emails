@@ -16,7 +16,7 @@ RUN chown -R user-app:user-app /app
 USER user-app
 
 ENV FLASK_APP=./src/main.py
-ENV DB_USER=postgres
+#ENV DB_USER=postgres
 ENV DB_PASSWORD=post_123
 ENV DB_NAME=postgres
 ENV DB_HOST=database-1.crmqo6uaq0mb.us-east-1.rds.amazonaws.com
