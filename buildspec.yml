@@ -17,8 +17,8 @@ phases:
       - echo *** Build completed on `date`
       - docker push 725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest
       - echo *** Pushed image to ECR
-      #- printf '[{"name":"Container-app-python-jip","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
-      - printf '[{"name":"Container-app-python","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"Container-app-python-jip","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
+      #- printf '[{"name":"Container-app-python","imageUri":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}]' > imagedefinitions.json
       - printf '{"ImageURI":"725316356419.dkr.ecr.us-east-1.amazonaws.com/blacklist_emails:latest"}' > imageDetail.json
       - cat imagedefinitions.json
 
@@ -30,7 +30,7 @@ artifacts:
   secondary-artifacts:
     DefinitionArtifact:
       files:
-        - appspec.json
+        - appspec.yml
         - taskdef.json
     ImageArtifact:
       files:
