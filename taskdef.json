@@ -9,7 +9,7 @@
           "protocol": "tcp"
         }
       ],
-      "name": "Container-app-python-jip",
+      "name": "Container-app-python",
       "essential": true,
       "image": "<IMAGE1_NAME>"
     }

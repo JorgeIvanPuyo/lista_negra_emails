@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "resources": [
+  "Resources": [
     {
       "TargetService": {
         "Type": "AWS::ECS::Service",
         "Properties": {
           "TaskDefinition": "<TASK_DEFINITION>",
           "LoadBalancerInfo": {
-            "ContainerName": "Container-app-python-jip",
+            "ContainerName": "Container-app-python",
             "ContainerPort": 5000
           }
         }
