@@ -71,5 +71,19 @@ class EmailDarkList(Resource):
 
         return {"message": "El correo ha sido bloqueado con éxito"}, 201
 
-
-    
+class AppInfo(Resource):
+    def get(self):
+        return """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>App Info</title>
+        </head>
+        <body>
+            <h1>App Name: Black List Emails</h1>
+            <p>Team: Rabbits</p>
+            <p>V: 1.0</p>
+            <p>Last commit: Add AppInfo</p>
+        </body>
+        </html>
+        """, 200
