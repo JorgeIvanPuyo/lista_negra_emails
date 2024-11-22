@@ -1,9 +1,13 @@
 # Usa una imagen base de Python 3.9
 FROM python:3.9-slim
+
 # Establece el directorio de trabajo
 WORKDIR /app
 
+# Copia los archivos necesarios
 COPY requirements.txt .
+COPY newrelic.ini .
+
 # Instala las dependencias de la aplicación
 RUN pip install -r requirements.txt --no-cache-dir
 
@@ -11,19 +15,16 @@ RUN pip install -r requirements.txt --no-cache-dir
 COPY src /app/src
 COPY tests /app/tests
 
+# Crea un usuario no root para mayor seguridad
 RUN groupadd -r user-app && useradd -r -g user-app -d /app user-app
 RUN chown -R user-app:user-app /app
 USER user-app
 
+# Configura las variables de entorno necesarias
 ENV FLASK_APP=./src/main.py
-#ENV DB_USER=postgres
-# ENV DB_PASSWORD=post_123
-# ENV DB_NAME=rabbit_commerce
-# ENV DB_HOST=dark_list_db
-# ENV DB_PORT=5432
 
 # Expone el puerto 3000 para la aplicación
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
-CMD ["flask", "run", "--host", "0.0.0.0", "--port", "3000", "--reload"]
+# Comando para iniciar la aplicación con New Relic
+CMD ["newrelic-admin", "run-program", "flask", "run", "--host", "0.0.0.0", "--port", "3000", "--reload"]

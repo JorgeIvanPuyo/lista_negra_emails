@@ -1,3 +1,6 @@
+import newrelic.agent
+newrelic.agent.initialize('newrelic.ini')
+
 from flask import Flask
 from flask_restful import Api
 from .services import EmailDarkList, EmailDark, Login, Health
