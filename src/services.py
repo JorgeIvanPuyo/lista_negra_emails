@@ -2,7 +2,7 @@ from flask_restful import reqparse, Resource
 from .db import db
 from .entities import Email
 from .schemas import EmailSchema
-from flask import request
+from flask import request, make_response
 from marshmallow import ValidationError
 from flask_jwt_extended import create_access_token
 from .decorators import token_required
@@ -73,7 +73,7 @@ class EmailDarkList(Resource):
 
 class AppInfo(Resource):
     def get(self):
-        return """
+        html_content = """
         <!DOCTYPE html>
         <html>
         <head>
@@ -83,7 +83,11 @@ class AppInfo(Resource):
             <h1>App Name: Black List Emails</h1>
             <p>Team: Rabbits</p>
             <p>V: 1.0</p>
-            <p>Last commit: Add AppInfo</p>
+            <p>Last commit: Add AppInfo with format</p>
         </body>
         </html>
-        """, 200
+        """
+        # Usamos make_response para definir el tipo de contenido como text/html
+        response = make_response(html_content)
+        response.headers["Content-Type"] = "text/html"
+        return response
