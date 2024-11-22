@@ -11,6 +11,8 @@ services:
       DB_NAME: rabbit_commerce
       DB_HOST: dark_list_db
       DB_PORT: 5432
+      NEW_RELIC_LICENSE_KEY: FFFD022A52FEDE1C5341E55798E3C7B594CCFE3B12D1456E3EF2E7251EA27D8F
+      NEW_RELIC_APP_NAME: Python Application
     ports:
       - "3000:3000"
     volumes:

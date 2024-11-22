@@ -1,6 +1,6 @@
-import newrelic.agent
-if not newrelic.agent.global_settings().enabled:
-    newrelic.agent.initialize('newrelic.ini')
+# import newrelic.agent
+# if not newrelic.agent.global_settings().enabled:
+#     newrelic.agent.initialize('newrelic.ini')
 
 from flask import Flask
 from flask_restful import Api
