@@ -13,12 +13,5 @@
         }
       }
     }
-  ],
-  "TrafficRoutingConfig": {
-    "Type": "TimeBasedCanary",
-    "TimeBasedCanary": {
-      "CanaryPercentage": 10,
-      "CanaryInterval": 1
-    }
-  }
+  ]
 }
