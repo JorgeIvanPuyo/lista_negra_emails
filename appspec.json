@@ -7,8 +7,8 @@
         "Properties": {
           "TaskDefinition": "<TASK_DEFINITION>",
           "LoadBalancerInfo": {
-            "ContainerName": "Container-app-python",
-            "ContainerPort": 5000
+            "ContainerName": "Container-black-list-emails",
+            "ContainerPort": 3000
           }
         }
       }

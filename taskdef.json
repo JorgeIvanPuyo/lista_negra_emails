@@ -4,15 +4,15 @@
     {
       "portMappings": [
         {
-          "hostPort": 5000,
+          "hostPort": 3000,
           "protocol": "tcp",
-          "containerPort": 5000
+          "containerPort": 3000
         }
       ],
 
       "image": "<IMAGE1_NAME>",
       "essential": true,
-      "name": "Container-app-python"
+      "name": "Container-black-list-emails"
     }
   ],
 
@@ -20,7 +20,7 @@
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "512",
-  "memory": "1024",
-  "family": "Task-app-python-jip"
+  "cpu": "1024",
+  "memory": "3072",
+  "family": "Task-black-list-emails"
 }

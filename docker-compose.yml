@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  dark_list:
+    container_name: lista_negra_emails
+    build:
+      context: .
+    environment:
+      FLASK_APP: ./src/main.py
+      DB_USER: postgres
+      DB_PASSWORD: post_123
+      DB_NAME: rabbit_commerce
+      DB_HOST: dark_list_db
+      DB_PORT: 5432
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+    depends_on:
+      dark_list_db:
+        condition: service_healthy
+  dark_list_db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: post_123
+      POSTGRES_DB: rabbit_commerce
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
