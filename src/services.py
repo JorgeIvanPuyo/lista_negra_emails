@@ -82,8 +82,8 @@ class AppInfo(Resource):
         <body>
             <h1>App Name: Black List Emails</h1>
             <p>Team: Rabbits</p>
-            <p>V: 1.1</p>
-            <p>Last commit: Change new relic ini file</p>
+            <p>V: 1.2</p>
+            <p>Last commit: Return config to last succeded deploy</p>
         </body>
         </html>
         """
