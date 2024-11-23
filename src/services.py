@@ -83,7 +83,7 @@ class AppInfo(Resource):
             <h1>App Name: Black List Emails</h1>
             <p>Team: Rabbits</p>
             <p>V: 1.0</p>
-            <p>Last commit: Add AppInfo with format</p>
+            <p>Last commit: First try with new relic config</p>
         </body>
         </html>
         """
