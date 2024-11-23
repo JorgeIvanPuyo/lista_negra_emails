@@ -7,3 +7,4 @@ Werkzeug
 psycopg2-binary
 coverage
 newrelic
+gunicorn

@@ -22,5 +22,6 @@ api.add_resource(Login, '/login')
 api.add_resource(Health, '/health')
 api.add_resource(AppInfo, '/')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
+

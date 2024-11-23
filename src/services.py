@@ -82,8 +82,8 @@ class AppInfo(Resource):
         <body>
             <h1>App Name: Black List Emails</h1>
             <p>Team: Rabbits</p>
-            <p>V: 1.3</p>
-            <p>Last commit: Change AppName for NewRelic</p>
+            <p>V: 1.4</p>
+            <p>Last commit: Change app server to gunicorn and modify logs for newrelic to debug</p>
         </body>
         </html>
         """
