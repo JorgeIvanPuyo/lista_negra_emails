@@ -82,8 +82,8 @@ class AppInfo(Resource):
         <body>
             <h1>App Name: Black List Emails</h1>
             <p>Team: Rabbits</p>
-            <p>V: 1.5</p>
-            <p>Last commit: add logs to handling new relic init</p>
+            <p>V: 1.6</p>
+            <p>Last commit: change new relic config and server for flask</p>
         </body>
         </html>
         """
