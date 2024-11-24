@@ -27,6 +27,6 @@ ENV FLASK_APP=./src/main.py
 EXPOSE 3000
 
 # Comando para iniciar la aplicación con New Relic
-CMD ["newrelic-admin", "run-program", "flask", "run", "--host", "0.0.0.0", "--port", "3000"]
-#CMD ["flask", "run", "--host", "0.0.0.0", "--port", "3000", "--reload"]
+#CMD ["newrelic-admin", "run-program", "flask", "run", "--host", "0.0.0.0", "--port", "3000"]
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "3000", "--reload"]
 #CMD ["newrelic-admin", "run-program", "gunicorn", "-w", "4", "-b", "0.0.0.0:3000", "src.main:app"]
